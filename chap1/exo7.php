@@ -2,17 +2,12 @@
 <html lang="fr">
 <?php
     session_start ();
-    if(isset($_POST['submit2'])) {
-        session_unset();
-        session_destroy();
-    }   
-    
 ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="src/css/index.css">
-    <title>exo8</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+    <title>exo7</title>
 </head>
 <body>
     <header class="header"> <!-- Entête du site -->
@@ -20,7 +15,7 @@
         <hr>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="../index.php">Accueil</a></li>
                 <li><a href="exo1.php">exo1</a></li>
                 <li><a href="exo2.php">exo2</a></li>
                 <li><a href="exo3.php">exo3</a></li>
@@ -34,34 +29,30 @@
         </nav>
     </header>
     <div>
-        <h1>Exercice 8</h1>
-        <p>Reprenez l’exercice 7 et rajouter un bouton qui permet lorsque l’on clique dessus de vider la session.</p>
-        <form action="" method="post">
+        <h1>Exercice 7</h1>
+        <p>Créer un petit formulaire avec une zone de texte et un bouton. Lorsque vous cliquer sur
+            le bouton la page doit afficher ce que vous avez saisie et l’enregistre dans une variable de
+            session $_SESSIONS[]. Le but est que si vous actualisez votre page la variable est
+            mémorisée et le site affiche toujours la valeur saisie.</p>
+        <form action="" method="session">
             <label for="name">Entrez votre nom :</label>
             <input type="text" name="name" id="name" required>
             <input type="submit" name="submit" value="Envoyer">
         </form>
-
-        <form  action="" method="post">
-            <input type="submit" name="submit2" value="Deconnexion">
-        </form>
         <?php
 
-        if(isset($_POST['name'])){
-            $_SESSION['name']=$_POST['name'];
-        }
-
+            echo "Session activé";
             
-            
-        if(isset($_SESSION['name'])){
-            echo "Mon nom est : ".$_SESSION['name'];
-        }
-        else{
-            echo "La session n'existe pas";
-        }
+            if(isset($_SESSION['name'])){
+                echo "Mon nom est : ".$_SESSION['name'];
+            }
+            else{
+                echo "La session n'existe pas";
+                $_SESSION['name']="Cauet";
+            }
 
-        highlight_file((__FILE__));
-
+            //code source//
+            highlight_file((__FILE__));
         ?>
     </div>
 </body>

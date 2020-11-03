@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="src/css/exo1.css">
-    <link rel="stylesheet" type="text/css" href="src/css/index.css">
-    <title>exo1</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+    <title>exo5</title>
 </head>
 <body>
     <header class="header"> <!-- Entête du site -->
@@ -13,7 +12,7 @@
         <hr>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="../index.php">Accueil</a></li>
                 <li><a href="exo1.php">exo1</a></li>
                 <li><a href="exo2.php">exo2</a></li>
                 <li><a href="exo3.php">exo3</a></li>
@@ -27,20 +26,23 @@
         </nav>
     </header>
     <div>
-        <h1>Exercice 1</h1>
-        <p>Réaliser une page php qui affiche un cadre bleu si un nombre est impair et en rouge si il
-            est paire : vous aurait besoin de la fonction </p>
+        <h1>Exercice 5</h1>
+        <p>Créer un petit formulaire avec une zone de text et un bouton. Lorsque vous cliquer sur le
+            bouton la page doit afficher ce que vous avez saisie en rouge. Utilisez $_POST[‘champ1’]</p>
+        <form action="" method="post">
+            <label for="name">Entrez votre nom :</label>
+            <input type="text" name="name" id="name" required>
+            <input type="submit" name="submit" value="Envoyer">
+        </form>
         <?php
-            $NombreAleatoire=rand(0,100); //Le programme choisi une valeur aléatoire allant de 0 à 99
+            
+            if(isset($_POST['name'])){
+                echo "Mon nom est : ".$_POST['name'];
+            }
+            else{
+                echo "Remplir le formulaire";
+            }
 
-            if($NombreAleatoire%2==1){ //Si le nombre aléatoire est impair 
-                echo'<div class="impair">'.$NombreAleatoire.' est impair </div>';
-            }
-            else{ //Sinon il est pair
-                echo'<div class="pair">'.$NombreAleatoire.' est pair</div>';
-            }
-        ?>
-        <?php
             //code source//
             highlight_file((__FILE__));
         ?>

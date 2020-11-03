@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-<?php
-    session_start ();
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="src/css/index.css">
-    <title>exo7</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+    <title>exo6</title>
 </head>
 <body>
     <header class="header"> <!-- Entête du site -->
@@ -15,7 +12,7 @@
         <hr>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="../index.php">Accueil</a></li>
                 <li><a href="exo1.php">exo1</a></li>
                 <li><a href="exo2.php">exo2</a></li>
                 <li><a href="exo3.php">exo3</a></li>
@@ -29,26 +26,21 @@
         </nav>
     </header>
     <div>
-        <h1>Exercice 7</h1>
+        <h1>Exercice 6</h1>
         <p>Créer un petit formulaire avec une zone de texte et un bouton. Lorsque vous cliquer sur
-            le bouton la page doit afficher ce que vous avez saisie et l’enregistre dans une variable de
-            session $_SESSIONS[]. Le but est que si vous actualisez votre page la variable est
-            mémorisée et le site affiche toujours la valeur saisie.</p>
-        <form action="" method="session">
+            le bouton la page doit afficher ce que vous avez saisie en violet Utilisez $_GET [‘champ1’]</p>
+        <form action="" method="get">
             <label for="name">Entrez votre nom :</label>
             <input type="text" name="name" id="name" required>
             <input type="submit" name="submit" value="Envoyer">
         </form>
         <?php
-
-            echo "Session activé";
             
-            if(isset($_SESSION['name'])){
-                echo "Mon nom est : ".$_SESSION['name'];
+            if(isset($_GET['name'])){
+                echo "Mon nom est : ".$_GET['name'];
             }
             else{
-                echo "La session n'existe pas";
-                $_SESSION['name']="Cauet";
+                echo "Remplir le formulaire";
             }
 
             //code source//

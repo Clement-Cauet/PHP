@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="src/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/index.css">
     <title>exo9</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
         <hr>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="../index.php">Accueil</a></li>
                 <li><a href="exo1.php">exo1</a></li>
                 <li><a href="exo2.php">exo2</a></li>
                 <li><a href="exo3.php">exo3</a></li>
@@ -43,38 +43,47 @@
         <p>-Puis affichez un bouton de déconnexion. Faites en sorte qu’une fois connecté l’utilisateur le reste lorsque on 
             actualise la page. Lorsque l’on clique sur le bouton de déconnexion la session doit être détruite.</p>
 
-        <form action="" method="post">
-            <label for="name">Entrez votre nom :</label>
-            <input type="text" name="name" id="name" required>
-            <label for="name">Entrez votre MDP :</label>
-            <input type="text" name="MDP" id="MDP" required>
-            <input type="submit" name="submit" value="Connexion">
-        </form>
-
-        <form  action="" method="post">
-            <input type="submit" name="submit2" value="Deconnexion">
-        </form>
     <?php
 
-    if(isset($_POST['name'])&&($_POST['MDP'])){
+    if($_SESSION['loged']==true){
+        echo '<form action="" method="post">
+                <label for="name">Entrez votre nom :</label>
+                <input type="text" name="name" id="name" required>
+                <label for="name">Entrez votre MDP :</label>
+                <input type="text" name="MDP" id="MDP" required>
+                <input type="submit" name="submit" value="Connexion">
+            </form>';
+    if(isset($_POST['name'])&&isset($_POST['MDP'])){
         $_SESSION['name']=$_POST['name'];
         $_SESSION['MDP']=$_POST['MDP'];
-    } 
+    }
         
-    if(isset($_SESSION['name'])&&($_SESSION['MDP'])){
-        echo "Mon nom est : ".$_SESSION['name'];
-        echo "Mon MDP est : ".$_SESSION['MDP'];
+    if(isset($_SESSION['name'])&&isset($_SESSION['MDP'])){
+        if(($name!=$_POST['name'])){
+            echo "Le login ".$_SESSION['name']." est inconnu.";
+        }
+    
+        if(($MDP!=$_POST['MDP'])){
+            echo "Le MDP ".$_SESSION['MDP']." est incorrect.";
+        }
+    
+        if($MDP==$_POST['MDP']&&$name==$_POST['name']){
+            $_SESSION['loged']=true;
+        }
     }
     else{
         echo "La session n'existe pas";
     }
-    
-    if(($_SESSION['name']!=$_POST['name'])){
-        echo "Le login ".$_SESSION['name']." est inconnu.";
-    }
 
-    if(($_SESSION['MDP']!=$_POST['MDP'])){
-        echo "Le MDP ".$_SESSION['MDP']." est incorrect.";
+    $name = 'Langlace';
+    $MDP = '1234';
+
+    }
+    else{
+        echo '<h1>Coucou Juju</h1>
+        <form  action="" method="post">
+            <input type="submit" name="submit2" value="Deconnexion">
+        </form>';
     }
 
     highlight_file((__FILE__));
