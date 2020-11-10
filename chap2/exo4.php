@@ -38,7 +38,9 @@
         
             if($mdp==$_POST['mdp']&&$login==$_POST['login']){
                 echo '<h1>Coucou '.$login.'</h1>';
-            ?>
+                ?>
+                <a href="http://youtube.com">Site secret</a>
+
             <form  action="" method="post">
                 <input type="submit" name="submit2" value="Deconnexion">
             </form>
@@ -46,7 +48,7 @@
             }
         }
         else{
-            echo "La session n'existe pas";
+            echo nl2br("La session n'existe pas\n");
         }
     }
 ?>
