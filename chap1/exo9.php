@@ -2,7 +2,7 @@
 <html lang="fr">
 <?php
      session_start ();
-     if(isset($_POST['submit2'])) {
+     if(isset($_POST['destroy'])) {
          session_unset();
          session_destroy();
      }   
@@ -32,7 +32,6 @@
             </ul>
         </nav>
     </header>
-    
     <div>
         <h1>Exercice 9</h1>
         <p>Créer une appli web avec un bouton de connexion qui demande un login et un mot de passe.
@@ -82,7 +81,7 @@
     else{
         echo '<h1>Coucou Juju</h1>
         <form  action="" method="post">
-            <input type="submit" name="submit2" value="Deconnexion">
+            <input type="submit" name="destroy" value="Deconnexion">
         </form>';
     }
 

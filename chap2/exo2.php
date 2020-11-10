@@ -1,3 +1,20 @@
+<?php
+    function tableau($nom="Philippe", $age="152", $sexe="Inconnu"){
+        echo 
+    "<table border=2px>
+        <tr>
+            <td>NOM</td>
+            <td>AGE</td>
+            <td>SEXE</td>
+        </tr>
+        <tr>
+            <td>$nom</td>
+            <td>$age</td>
+            <td>$sexe</td>
+        </tr>
+    </table>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -22,6 +39,20 @@
         </header>
         <div>
             <h1>Exercice 2</h1>
+            <p>Ecrire une fonction qui prend en paramètre le nom de 3 colonnes. 
+                Cette fonction doit afficher un tableau avec en entête de colonnes les noms de colonne passés en paramètre.</p>
+            <?php
+                tableau();
+            ?>
+            <?php
+                tableau();
+            ?>
+            <div>
+                <?php    
+                    //code source//
+                    highlight_file((__FILE__));
+                ?>
+            </div>
         </div>
     </body>
 </html>
